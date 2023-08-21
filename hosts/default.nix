@@ -4,8 +4,9 @@
       let
         systemInputs = { _module.args = { inherit self' inputs'; }; };
         inherit (inputs.nixpkgs.lib) nixosSystem;
-      in {
-        linudev = nixosSystem {
+      in
+      {
+        mizu = nixosSystem {
           inherit system;
 
           modules = [

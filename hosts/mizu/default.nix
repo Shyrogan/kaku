@@ -27,7 +27,7 @@
 
   environment.systemPackages = [ config.boot.kernelPackages.cpupower ];
 
-  networking.hostName = "aesthetic";
+  networking.hostName = "mizu";
 
   programs = {
     # enable hyprland and required options

@@ -12,12 +12,12 @@ let
   ]);
 
   homeImports = {
-    "linuxmobile@linudev" = [ ./linudev ] ++ sharedModules;
-    server = [ ./server ] ++ sharedModules;
+    "sebastien@mizu" = [ ./sebastien ] ++ sharedModules;
   };
 
   inherit (inputs.hm.lib) homeManagerConfiguration;
-in {
+in
+{
   imports = [
     # we need to pass this to NixOS' HM module
     { _module.args = { inherit homeImports; }; }
@@ -25,13 +25,8 @@ in {
 
   flake = {
     homeConfigurations = withSystem "x86_64-linux" ({ pkgs, ... }: {
-      "linuxmobile@linudev" = homeManagerConfiguration {
-        modules = homeImports."linuxmobile@linudev";
-        inherit pkgs;
-      };
-
-      server = homeManagerConfiguration {
-        modules = homeImports.server;
+      "sebastien@mizu" = homeManagerConfiguration {
+        modules = homeImports."sebastien@mizu";
         inherit pkgs;
       };
     });
